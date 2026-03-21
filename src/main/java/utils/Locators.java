@@ -25,13 +25,32 @@ public interface Locators {
         By DESCRIPTION_INPUT = By.id("description");
         By DURATION_INPUT = By.id("duration");
         By SAVE_BUTTON = By.cssSelector("button[type='submit']");
+        By DELETE_BUTTON = By.cssSelector("button.btn-danger");
         By PAGE_TITLE = By.className("page_title");
+        By ERROR_MESSAGE = By.className("text-danger");
     }
 
     interface BookingPage {
         By DATE_PICKER = By.id("datePicker");
+        By DATE_FORM = By.id("dateSelection");
         By EXECUTOR_RADIO = By.name("executors");
+        By EXECUTOR_FORM = By.id("executorSelection");
         By TIMESLOT_RADIO = By.name("timeslots_radio");
         By SUBMIT_BUTTON = By.id("submitBtn");
+        By CLEAR_BUTTON = By.id("clearButton");
+    }
+
+    interface ManageAssignsPage {
+        By NOT_APPROVED_COLUMN = By.id("not_approved");
+        By APPROVED_COLUMN = By.id("approved");
+        By CANCELED_COLUMN = By.id("canceled");
+        By BOOKING_CARDS = By.cssSelector(".card-wrapper");
+        String CARD_BY_ID = ".card-wrapper[data-id='%s']";
+    }
+
+    interface NavBar {
+        By PROFILE_LINK = By.xpath("//a[@href='/profile']");
+        By MANAGE_ASSIGNS_LINK = By.xpath("//a[@href='/manage-assigns']");
+        By LOGOUT_LINK = By.xpath("//a[@href='/logout']");
     }
 }
