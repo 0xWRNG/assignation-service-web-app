@@ -64,7 +64,7 @@
                       method="post">
                     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
                     <input id="datePicker" type="date" class="form-control" name="date"
-                           th:value="${selectedDate != null ? selectedDate.toString() : null}">
+                           th:value="${selectedDate != null ? selectedDate.toString() : null}" min = "${#dates.format(#dates.createNow(), 'yyyy.MM.dd')}">
                 </form>
             </div>
         </div>

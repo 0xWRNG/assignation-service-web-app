@@ -25,8 +25,7 @@ public class ManageAssignsPage {
     }
 
     public ManageAssignsPage dragFirstNotApprovedToApproved() {
-        WebElement card = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.cssSelector("#not_approved .card-wrapper")));
+        WebElement card = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.ManageAssignsPage.NOT_APPROVED_CARD));
         WebElement target = driver.findElement(Locators.ManageAssignsPage.APPROVED_COLUMN);
         
         Actions actions = new Actions(driver);
@@ -35,8 +34,7 @@ public class ManageAssignsPage {
     }
 
     public ManageAssignsPage dragFirstNotApprovedToCanceled() {
-        WebElement card = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.cssSelector("#not_approved .card-wrapper")));
+        WebElement card = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.ManageAssignsPage.NOT_APPROVED_CARD));
         WebElement target = driver.findElement(Locators.ManageAssignsPage.CANCELED_COLUMN);
         
         Actions actions = new Actions(driver);
@@ -54,11 +52,15 @@ public class ManageAssignsPage {
         return this;
     }
 
+    public WebElement getFirstCardInColumn(By columnLocator) {
+        return driver.findElement(columnLocator).findElement(By.cssSelector(".card-wrapper"));
+    }
+
     public boolean isFirstCardApproved() {
         try {
-            Thread.sleep(500); // Ожидание fetch запроса
-            WebElement card = driver.findElement(Locators.ManageAssignsPage.BOOKING_CARDS);
-            return card.getAttribute("class").contains("approved");
+            WebElement card = getFirstCardInColumn(Locators.ManageAssignsPage.APPROVED_COLUMN);
+            String classes = card.getAttribute("class");
+            return classes.contains("approved") && !classes.contains("not_approved");
         } catch (Exception e) {
             return false;
         }
@@ -66,9 +68,9 @@ public class ManageAssignsPage {
 
     public boolean isFirstCardCanceled() {
         try {
-            Thread.sleep(500); // Ожидание fetch запроса
-            WebElement card = driver.findElement(Locators.ManageAssignsPage.BOOKING_CARDS);
-            return card.getAttribute("class").contains("canceled");
+            WebElement card = getFirstCardInColumn(Locators.ManageAssignsPage.CANCELED_COLUMN);
+            String classes = card.getAttribute("class");
+            return classes.contains("canceled");
         } catch (Exception e) {
             return false;
         }
