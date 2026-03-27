@@ -35,9 +35,10 @@ public class AuthPage {
         return this;
     }
 
+
     public AuthPage clickSubmitExpectingSuccess() {
         driver.findElement(Locators.AuthPage.SUBMIT_BUTTON).click();
-        return this; // В реальном приложении переходит на ProfilePage или Mainpage
+        return this;
     }
 
     public AuthPage clickSubmitExpectingFailure() {

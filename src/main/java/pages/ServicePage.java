@@ -44,15 +44,18 @@ public class ServicePage {
 
     public ServicePage clickSaveExpectingSuccess() {
         driver.findElement(Locators.ServicePage.SAVE_BUTTON).click();
-        return this; // В реальном приложении редирект на /service/{id}
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
+        return this;
     }
 
     public ServicePage clickSaveExpectingFailure() {
         driver.findElement(Locators.ServicePage.SAVE_BUTTON).click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
         return this;
     }
 
     public boolean isOnServiceViewPage() {
+        String currentUrl = driver.getCurrentUrl();
         return driver.getCurrentUrl().contains("/service/") && !driver.getCurrentUrl().contains("/add/");
     }
 

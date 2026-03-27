@@ -33,25 +33,25 @@
             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
             <div class="card-body">
                 <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Имя пользователя" id="login" name="login" required minlength="5" maxlength="30">
+                    <input type="text" class="form-control" placeholder="Имя пользователя" id="login" name="login" required minlength="4" maxlength="25">
                 </div>
                 <div class="mb-3">
-                    <input type="password" class="form-control"  placeholder="Пароль" id="password" name="password" required minlength="8">
+                    <input type="password" class="form-control"  placeholder="Пароль" id="password" name="password" required minlength="5">
                 </div>
                 <div class="mb-3">
-                    <input type="email"  class="form-control" placeholder="Почта" id="email" name="email">
+                    <input type="email"  class="form-control" placeholder="Почта" id="email" name="email" required>
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Номер телефона" id="phone" name="phone">
+                    <input type="text" class="form-control" placeholder="Номер телефона" id="phone" name="phone" required>
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Фамилия" id="surname" name="surname">
+                    <input type="text" class="form-control" placeholder="Фамилия" id="surname" name="surname" required>
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Имя" id="name" name="name">
+                    <input type="text" class="form-control" placeholder="Имя" id="name" name="name" required>
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Отчество" id="patronymic" name="patronymic">
+                    <input type="text" class="form-control" placeholder="Отчество" id="patronymic" name="patronymic" required>
                 </div>
                 <div class="form-check form-switch mb-3">
                     <input class="form-check-input" type="checkbox"  value="MANAGER" data-off="USER"  data-onstyle="success" data-offstyle="primary" role="switch" id="role" name="role">

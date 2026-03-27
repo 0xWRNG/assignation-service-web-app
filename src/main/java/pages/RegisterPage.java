@@ -42,6 +42,33 @@ public class RegisterPage {
         return this;
     }
 
+    public RegisterPage enterPhone(String phone) {
+        WebElement input = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.RegisterPage.PHONE_INPUT));
+        input.clear();
+        input.sendKeys(phone);
+        return this;
+    }
+    public RegisterPage enterName(String Name) {
+        WebElement input = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.RegisterPage.NAME_INPUT));
+        input.clear();
+        input.sendKeys(Name);
+        return this;
+    }
+    
+    public RegisterPage enterSurname(String Surname) {
+        WebElement input = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.RegisterPage.SURNAME_INPUT));
+        input.clear();
+        input.sendKeys(Surname);
+        return this;
+    }
+
+    public RegisterPage enterPatronymic(String Patronymic) {
+        WebElement input = wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.RegisterPage.PATRONYMIC_INPUT));
+        input.clear();
+        input.sendKeys(Patronymic);
+        return this;
+    }
+
     public RegisterPage toggleManagerRole() {
         WebElement toggle = wait.until(ExpectedConditions.elementToBeClickable(Locators.RegisterPage.ROLE_SWITCH));
         toggle.click();
@@ -69,4 +96,5 @@ public class RegisterPage {
     public boolean isOnRegisterPage() {
         return driver.getCurrentUrl().contains("/register");
     }
+    public boolean isOnLoginPage(){return driver.getCurrentUrl().contains("/login");}
 }
