@@ -18,6 +18,10 @@ public class ServicePage {
 
     public ServicePage open(String baseUrl, int companyId) {
         driver.get(baseUrl + "/service/add/" + companyId);
+        System.out.println("AFTER GET URL: " + driver.getCurrentUrl());
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                Locators.ServicePage.TITLE_INPUT
+        ));
         return this;
     }
 
@@ -44,13 +48,13 @@ public class ServicePage {
 
     public ServicePage clickSaveExpectingSuccess() {
         driver.findElement(Locators.ServicePage.SAVE_BUTTON).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
+
         return this;
     }
 
     public ServicePage clickSaveExpectingFailure() {
         driver.findElement(Locators.ServicePage.SAVE_BUTTON).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
+
         return this;
     }
 

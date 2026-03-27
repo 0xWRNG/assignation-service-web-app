@@ -38,11 +38,14 @@ public class AuthPage {
 
     public AuthPage clickSubmitExpectingSuccess() {
         driver.findElement(Locators.AuthPage.SUBMIT_BUTTON).click();
+        wait.until(ExpectedConditions.urlContains("/profile"));
         return this;
     }
 
     public AuthPage clickSubmitExpectingFailure() {
         driver.findElement(Locators.AuthPage.SUBMIT_BUTTON).click();
+        wait.until(ExpectedConditions.urlContains("/login"));
+
         return this;
     }
 

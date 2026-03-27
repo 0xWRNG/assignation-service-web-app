@@ -77,11 +77,15 @@ public class RegisterPage {
 
     public AuthPage clickSubmitExpectingSuccess() {
         driver.findElement(Locators.RegisterPage.SUBMIT_BUTTON).click();
+        wait.until(ExpectedConditions.urlContains("/login"));
+
         return new AuthPage(driver);
     }
 
     public RegisterPage clickSubmitExpectingFailure() {
         driver.findElement(Locators.RegisterPage.SUBMIT_BUTTON).click();
+        wait.until(ExpectedConditions.urlContains("/register"));
+
         return this;
     }
 
