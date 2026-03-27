@@ -48,13 +48,13 @@ public class ServicePage {
 
     public ServicePage clickSaveExpectingSuccess() {
         driver.findElement(Locators.ServicePage.SAVE_BUTTON).click();
-
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
         return this;
     }
 
     public ServicePage clickSaveExpectingFailure() {
         driver.findElement(Locators.ServicePage.SAVE_BUTTON).click();
-
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
         return this;
     }
 

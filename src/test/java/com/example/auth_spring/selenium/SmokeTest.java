@@ -92,7 +92,7 @@ public class SmokeTest {
         loginAsManager();
         ServicePage servicePage = new ServicePage(driver).open(BASE_URL, 3);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
-        servicePage.enterTitle("Валидная услуга")
+        servicePage.enterTitle("Услуга с длительностью 0")
                 .enterDuration("0")
                 .clickSaveExpectingFailure();
         assertTrue(servicePage.isOnServiceAddPage());
@@ -166,7 +166,7 @@ public class SmokeTest {
 
     @Test
     @Order(204)
-    @DisplayName("2.8 Невалидный email — ошибка")
+    @DisplayName("2.8 Невалидный email")
     public void checkInvalidEmailRegistration() {
         RegisterPage registerPage = new RegisterPage(driver).open(BASE_URL);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
